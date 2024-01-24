@@ -18,8 +18,31 @@ export default {
     },  
     methods: {
 
-    }
-}
+    },
+    mounted() {
+          axios
+             .get(this.store.Urlmovie,{
+              params:{
+                api_key:this.store.apiKey,
+                query:'',
+              }
+             })
+             .then((response) => {
+                 console.log('movie',response);
+                 this.AppMovie = response.data.results
+             });
+          axios
+           .get(this.store.Urlserie,{
+            params:{
+              api_key:this.store.apiKey,
+              query:'',
+            }
+           })
+           .then((response) => {
+               console.log('serietv',response);
+           });
+        },
+};
 </script>
 
 <template>

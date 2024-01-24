@@ -1,13 +1,42 @@
 <script>
+import axios from 'axios';
+import { store } from '../store.js';
+
 export default {
     data() {
         return {
-
+            store
         };
     },
     methods: {
+        searchbutton(){
+        axios
+             .get(this.store.Urlmovie,{
+              params:{
+                api_key:this.store.apiKey,
+                query:store.searchfilm,
+              }
+             })
+             .then((response) => {
+                 console.log('movie',response);
+                 this.AppMovie = response.data.results
+             });
+          axios
+           .get(this.store.Urlserie,{
+            params:{
+              api_key:this.store.apiKey,
+              query:'',
+            }
+           })
+           .then((response) => {
+               console.log('serietv',response);
+           });
+            
 
     }
+
+    },
+    
 }
 </script>
 
@@ -25,13 +54,13 @@ export default {
 
             <div class="cercaTesto">
 
-                <form>
-                    <input type="text"  style="width: 100px; height: 20px;">
-                    <button style="width: 50px; height: 30px;">
+                
+                    <input  v-model="store.searchfilm"  type="text"  style="width: 100px; height: 20px;">
+                    <button @click="searchbutton"    style="width: 50px; height: 30px;">
                            search
                     </button>
 
-                </form>
+                
                 
             </div>
 
