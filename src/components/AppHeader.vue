@@ -19,7 +19,7 @@ export default {
              })
              .then((response) => {
                  console.log('movie',response);
-                 this.AppMovie = response.data.results
+                 this.store.AppMovie = response.data.results
              });
           axios
            .get(this.store.Urlserie,{
@@ -30,6 +30,7 @@ export default {
            })
            .then((response) => {
                console.log('serietv',response);
+               this.store.AppSeries = response.data.results
            });
             
 

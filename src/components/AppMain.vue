@@ -28,6 +28,7 @@ export default {
              })
              .then((response) => {
                  console.log('movie',response);
+                 
              });
           axios
            .get(this.store.Urlserie,{
@@ -47,12 +48,14 @@ export default {
     <main>
 
        <div class="container-main">
+            
+            <div v-for="(elem, i) in store.AppMovie" :key="i">
+                <span>{{ elem.title }}</span>
+            </div>
 
-           <div v-for="(elem, i) in store.Appmovie">
-        
-              <span>{{ store.AppMovie[0]}}</span>
-
-           </div>
+            <div v-for="(elem, i) in store.AppSeries" :key="i">
+                <span>{{ elem.title }}</span>
+            </div>
 
        </div>
 
