@@ -1,11 +1,15 @@
 <script>
 import axios from 'axios';
 import { store } from '../store.js';
+import AppMovie from "./AppMovie.vue";
+import AppSeries from "./AppSeries.vue";
 
 export default {
     data() {
         return {
-            store
+            store,
+            AppMovie,
+            AppSeries
         };
     },
     methods: {
@@ -14,7 +18,7 @@ export default {
              .get(this.store.Urlmovie,{
               params:{
                 api_key:this.store.apiKey,
-                query:store.searchfilm,
+                query:this.store.searchfilm,
               }
              })
              .then((response) => {
@@ -25,12 +29,12 @@ export default {
            .get(this.store.Urlserie,{
             params:{
               api_key:this.store.apiKey,
-              query:'',
+              query:this.store.searchfilm,
             }
            })
            .then((response) => {
                console.log('serietv',response);
-               this.store.AppSeries = response.data.results
+               this.store.AppSeries = response.data.results;
            });
             
 

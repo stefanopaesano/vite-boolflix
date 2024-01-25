@@ -14,7 +14,8 @@ export default {
     components: {
         AppHeader,
         AppMain,
-        AppFooter
+        AppFooter,
+        
     },  
     methods: {
 

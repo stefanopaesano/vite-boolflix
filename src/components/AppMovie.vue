@@ -1,14 +1,15 @@
 <script>
-
+import axios from 'axios';
+import { store } from '../store.js';
 
 export default {
     data() {
         return {
-            store
+            store,
         };
     },
     components: {
-        
+
     },  
     methods: {
 
@@ -19,11 +20,7 @@ export default {
 
 <template>
     
-    <AppHeader />
-
-    <AppMain />
-
-    <AppFooter />
+    
 </template>
 
 <style lang="scss">
