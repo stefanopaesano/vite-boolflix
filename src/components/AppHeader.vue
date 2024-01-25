@@ -60,8 +60,8 @@ export default {
             <div class="cercaTesto">
 
                 
-                    <input  v-model="store.searchfilm"  type="text"  style="width: 100px; height: 20px;">
-                    <button @click="searchbutton"    style="width: 50px; height: 30px;">
+                    <input  v-model="store.searchfilm"  type="text"  style="width: 400px; height: 20px;">
+                    <button @click="searchbutton"    style="width: 50px; height: 20px;">
                            search
                     </button>
 
@@ -87,6 +87,7 @@ export default {
     border: 1px solid black;
     height: 100px;
     width: 100%;
+    background-color: rgb(49, 47, 47);
 
     .cercaTesto{
         display: flex;

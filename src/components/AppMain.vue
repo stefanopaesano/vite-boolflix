@@ -46,43 +46,61 @@ export default {
 
 <template>
     <main>
-
+        
         <div class="container-main">
+            
             <ul v-for="(elem, i) in store.AppMovie" :key="i">
-                <h2>move</h2>
+                
                 <li>
-                    titolo:{{ elem.title }}
+                    <img style="width: 100%;"  :src="'https://image.tmdb.org/t/p/w500' + elem.poster_path" :alt="elem.poster_path">
                 </li>
                 <li>
                     titolo originale:{{ elem.original_title }}
                 </li>
                 <li>
-                    lingua originale:{{ elem.original_language }}
+                    titolo:{{ elem.title }}
                 </li>
                 <li>
                      <img :src="getFlag(elem.original_language)" :alt="elem.original_language">
                 </li>
                 <li>
-                    voto: {{ elem.vote_count }}
+                    lingua originale:{{ elem.original_language }}
+                </li>
+                <li>
+                    <i v-for="n in 5" class="fa-star" 
+                            :class="{ 
+                            'fa-solid': n <= Math.ceil(elem.vote_average / 2), 
+                            'fa-regular': n > Math.ceil(elem.vote_average / 2) 
+                            }" style="color: #ffff00;">
+                    </i>
                 </li>
             </ul>
-
+            
             <ul v-for="(elem, i) in store.AppSeries" :key="i">
-                <h3>series</h3>
+                
                 <li>
-                    titolo:{{ elem.name }}
+                   <img  style="width: 100%;" :src="'https://image.tmdb.org/t/p/w500' + elem.poster_path" :alt="elem.poster_path">
                 </li>
                 <li>
                     titolo originale:{{ elem.original_name }}
                 </li>
                 <li>
-                    lingua originale:{{ elem.original_language }}
+                     titolo:{{ elem.name }}
                 </li>
                 <li>
                      <img :src="getFlag(elem.original_language)" :alt="elem.original_language">
                 </li>
                 <li>
-                    voto: {{ elem.vote_count }}
+                    lingua originale:{{ elem.original_language }}
+                </li>
+                <li>
+                    <i v-for="n in 5" class="fa-star" 
+                        :class="{ 
+                        'fa-solid': n <= Math.ceil(elem.vote_average / 2), 
+                        'fa-regular': n > Math.ceil(elem.vote_average / 2) 
+                         }" style="color: #ffff00;">
+                    </i>
+                   
                 </li>
             </ul>
         </div>
@@ -92,11 +110,19 @@ export default {
 </template>
 
 <style lang="scss" scoped>
+.container-main{
+    display: flex;
+    flex-wrap: wrap;
+    background-color: rgb(49, 47, 47);
+
+}
 ul{
     border: 1px solid black;
+    list-style: none;
+    width: 33%;
 
     img{
-        width: 30px;
+        width: 10%;
     }
 }
 </style>
