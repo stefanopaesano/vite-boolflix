@@ -113,13 +113,20 @@ export default {
 .container-main{
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     background-color: rgb(49, 47, 47);
+    width: 100%;
+    
 
 }
 ul{
-    border: 1px solid black;
+    border:3px solid rgb(28, 28, 246);
     list-style: none;
-    width: 33%;
+    width: 300px;
+    margin: 10px;
+    li{
+        
+    }
 
     img{
         width: 10%;
