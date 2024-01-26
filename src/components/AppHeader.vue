@@ -83,7 +83,8 @@ export default {
 <style lang="scss" scoped>
 .container{
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
+    align-items: center;
     border: 1px solid black;
     height: 100px;
     width: 100%;
